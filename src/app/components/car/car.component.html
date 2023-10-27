@@ -1,0 +1,155 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3">
+      <!-- <app-brand></app-brand>
+      <br />
+      <app-color></app-color> -->
+    </div>
+    <div
+      *ngIf="dataLoaded == false"
+      class="spinner-border text-secondary"
+      role="status"
+    >
+      <span class="visually-hidden">Loading...</span>
+    </div>
+
+    <div *ngIf="dataLoaded == true" class="row cols-12 mb-3">
+      <div class="col-3 col-sm-2 col-md-2 col-xxl-1 col-xl-1 pb-2">
+        <span class="badge bg-neon-green" style="height: 36px" >Search</span>
+      </div>
+      <div class="col-9 col-sm-10 col-md-10 col-xxl-11 col-xl-11">
+        <input
+          type="text"
+          [(ngModel)]="filterText"
+          class="form-control"
+          id="filterText"
+          placeholder="Arama yapınız..."
+        />
+      </div>
+    </div>
+
+    <br />
+
+    <div *ngIf="dataLoaded == true" class="container text-start">
+      <div class="row justify-content-start">
+        <div class="col-md-4 col-sm-4 col-12 mb-1">
+          <select
+            [(ngModel)]="brandFilter"
+            class="form-select bg-dark border-primary text-white"
+            aria-label="Default select example"
+          >
+            <option value="0" selected>Brands</option>
+            <option *ngFor="let brand of brands" [value]="brand.id">
+              {{ brand.brandName }}
+            </option>
+          </select>
+        </div>
+        <div class="col-md-4 col-sm-4 col-12 mb-2">
+          <select
+            [(ngModel)]="colorFilter"
+            class="form-select bg-dark border-primary text-white"
+            aria-label="Default select example"
+          >
+            <option value="0" selected>Colors</option>
+            <option *ngFor="let color of colors" [value]="color.id">
+              {{ color.colorName }}
+            </option>
+          </select>
+        </div>
+        <div class="col-md-2 offset-md-0 col-sm-2 col-6 d-grid gap-1">
+          <button
+            (click)="getCarsByColorAndBrand(brandFilter, colorFilter)"
+            class="btn btn-success"
+          >
+            Filter
+          </button>
+        </div>
+        <div
+          class="col-md-2 offset-md-0 col-sm-2 offset-sm-0 col-6 d-grid gap-1"
+        >
+          <button (click)="getCars()" class="btn btn-warning">Clear</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="btn-group mb-4">
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Dropdown button
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark">
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+        </ul>
+      </div>
+
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Dropdown button
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark">
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+        </ul>
+      </div>
+
+      <div></div>
+    </div> -->
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-4">
+      <div class="col" *ngFor="let car of cars | carSearch : filterText">
+        <div class="card bg-anthracite2 border-anthracite text-secondary">
+          <button
+            class="btn"
+            style="
+              --bs-btn-padding-y: 0rem;
+              --bs-btn-padding-x: 0rem;
+              --bs-btn-font-size: 0.75rem;
+            "
+            [routerLink]="['/car/details/',car.id]"
+          >
+            <img
+              *ngIf="car.imagePath"
+              [src]="baseUrl + car.imagePath"
+              class="card-img-top img"
+              alt="..."
+            />
+            <img
+              *ngIf="!car.imagePath"
+              src="https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-1-scaled-1150x647.png"
+              class="card-img-top"
+              alt="..."
+            />
+          </button>
+          <div class="card-body">
+            <h5 class="card-title text-white">{{ car.brandName }}</h5>
+            <p class="card-text">{{ car.description }}</p>
+          </div>
+          <div class="d-grid gap-4 col-6 mb-2 mx-auto">
+            <button
+              (click)="addToCart(car)"
+              class="btn btn-primary"
+              type="button"
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <table class="table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Description</th>
+      <th>Brand Name</th>
+      <th>Color Name</th>
+    </tr>
+  </thead>
+  <tr *ngFor="let car of cars">
+    <td>{{ car.id }}</td>
+    <td>{{ car.description }}</td>
+    <td>{{ car.brandName }}</td>
+    <td>{{ car.colorName }}</td>
+  </tr>
+</table> -->

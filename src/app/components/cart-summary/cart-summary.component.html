@@ -1,0 +1,16 @@
+<div class="dropdown">
+    <li class="nav-item dropdown">
+        <button class="btn btn-dark dropdown-toggle" href="#" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            My Cart
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark">
+            <li *ngFor="let cartItem of cartItems"><a class="dropdown-item">{{cartItem.quantity}} x {{cartItem.car.brandName}}</a></li>
+            <li>
+                <hr class="dropdown-divider" />
+            </li>
+            <li><a class="dropdown-item">Cart</a></li>
+        </ul>
+    </li>
+</div>  
+  

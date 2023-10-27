@@ -1,0 +1,155 @@
+<div class="container-xxl">
+  <div
+    *ngFor="let car of car"
+    class="card bg-anthracite2 border-anthracite text-white text-start"
+  >
+    <div class="card-header bg-dark">
+      <ul class="nav nav-tabs card-header-tabs">
+        <li class="nav-item">
+          <a class="nav-link bg-anthracite2" aria-current="true" href="#"
+            >Preview</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-neon-green" aria-current="true" href="#"
+            >Active</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-neon-green" aria-current="true" href="#"
+            >Active</a
+          >
+        </li>
+      </ul>
+    </div>
+    <div
+      class="row cols-12 cols-sm-12 cols-md-12 cols-xl-12 cols-xxl-12 mt-3 ms-2 me-2 mb-5"
+    >
+      <div class="col-12 col-sm-12 col-md-6 col-xl-5 col-xxl-5 text-center">
+        <div class="card-img-top">
+          <img
+            *ngIf="car.imagePath"
+            [src]="baseUrl + car.imagePath"
+            class="card-img-top img"
+            alt="..."
+          />
+          <img
+            *ngIf="!car.imagePath"
+            src="https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-1-scaled-1150x647.png"
+            class="card-img-top"
+            alt="..."
+          />
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-xl-7 col-xxl-7">
+        <div class="card-body bg-anthracite2 w-auto">
+          <h3 class="card-title text-end ms-5">| {{ car.description }}</h3>
+          <hr class="card-divider" />
+          <table class="table">
+            <tbody class="text-custom1">
+              <tr class>
+                <th>Brand|</th>
+                <td>{{ car.brandName }}</td>
+              </tr>
+              <tr>
+                <th>Color |</th>
+                <td>{{ car.colorName }}</td>
+              </tr>
+              <tr>
+                <th>Model Year |</th>
+                <td>{{ car.modelYear }}</td>
+              </tr>
+              <tr>
+                <th>Daily Price |</th>
+                <td>{{ car.dailyPrice | currency : "₺" }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-9"></div>
+      <div class="col-12 col-sm-12 col-md-12 text-center d-grid">
+        <div class="accordion mt-3" id="accordionExample">
+          <div
+            class="accordion-item border-anthracite bg-anthracite text-custom1"
+          >
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed bg-dark text-light text-center"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseOne"
+                aria-expanded="true"
+                aria-controls="collapseOne"
+              >
+                Rent
+              </button>
+            </h2>
+            <div
+              id="collapseOne"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingOne"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                <app-rental></app-rental>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="card-text placeholder-wave">
+            <span class="placeholder col-7"></span>|
+            <span class="placeholder col-4"></span>|
+            <span class="placeholder col-4"></span>|
+            <br />
+            <span class="placeholder col-6"></span>|
+            <span class="placeholder col-8"></span>|
+            <span class="placeholder col-3"></span>|
+            <span class="placeholder col-5"></span>|
+            <span class="placeholder col-4"></span>|
+            <span class="placeholder col-6"></span>|
+            <span class="placeholder col-8"></span>
+            <span class="placeholder col-7"></span>|
+            <span class="placeholder col-4"></span>|
+            <span class="placeholder col-4"></span>|
+            <br />
+            <span class="placeholder col-6"></span>|
+            <span class="placeholder col-8"></span>|
+            <span class="placeholder col-3"></span>|
+            <span class="placeholder col-5"></span>|
+            <span class="placeholder col-4"></span>|
+            <span class="placeholder col-6"></span>|
+            <span class="placeholder col-8"></span>
+            <br />
+            <br />
+            <span class="placeholder col-3"></span>|
+            <span class="placeholder col-5"></span>|
+            <span class="placeholder col-4"></span>|
+            <span class="placeholder col-6"></span>|
+            <span class="placeholder col-8"></span
+            ><span class="placeholder col-3"></span>|
+            <span class="placeholder col-5"></span>|
+            <span class="placeholder col-4"></span>|
+            <span class="placeholder col-6"></span>|
+            <span class="placeholder col-8"></span>
+            <br />
+            <br />
+            <br />
+            <span class="placeholder col-3"></span>|
+            <span class="placeholder col-5"></span>|
+            <span class="placeholder col-4"></span>|
+            <span class="placeholder col-6"></span>|
+            <span class="placeholder col-8"></span>
+            <br />
+            <span class="placeholder col-3"></span>|
+            <span class="placeholder col-5"></span>|
+            <span class="placeholder col-4"></span>|
+            <span class="placeholder col-6"></span>|
+            <span class="placeholder col-8"></span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,58 @@
+@import "../node_modules/bootstrap/dist/css/bootstrap.css";
+:root{
+  --anthracite3-rgb:52, 52, 64;
+  --lightcyan:#a0bdbd;
+  --bs-body-bg: rgb(45, 52, 59);
+  --anthracite1-rgb: 45, 52, 59;
+  --anthracite-rgb: 58, 67, 77;
+  --neon-green: #F0FF42;
+  --neon-green-rgb:22, 255, 0;
+  --anthracite2-rgb:35, 41, 46;
+  --grey300: #737375;
+  --custom1:
+}
+
+.bg-f {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--anthracite3-rgb), var(--bs-bg-opacity)) !important;
+}
+.bg-anthracite {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--anthracite-rgb), var(--bs-bg-opacity)) !important;
+}
+.text-anthracite {
+  --bs-bg-opacity: 1;
+  color: rgba(var(--anthracite-rgb), var(--bs-bg-opacity)) !important;
+}
+.border-anthracite {
+  --bs-bg-opacity: 1;
+  border-color: rgba(var(--anthracite-rgb), var(--bs-bg-opacity)) !important;
+}
+.bg-anthracite2 {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--anthracite2-rgb), var(--bs-bg-opacity)) !important;
+}
+.text-anthracite2 {
+  --bs-bg-opacity: 1;
+  color: rgba(var(--anthracite2-rgb), var(--bs-bg-opacity)) !important;
+}
+.bg-lightcyan {
+  --bs-bg-opacity: 1;
+  background-color: var(--lightcyan)!important;
+}
+.text-neon-green {
+  --bs-bg-opacity: 1;
+  color: rgba(var(--neon-green-rgb),var(--bs-bg-opacity)) !important;
+}
+.bg-neon-green {
+  --bs-bg-opacity: 1;
+  background-color: rgba(79, 194, 68,var(--bs-bg-opacity)) !important;
+}
+.bg-grey300{
+  background-color: var(--grey300);
+}
+.text-custom1{
+  --bs-bg-opacity: 1;
+  color: rgba(186, 186, 194 , var(--bs-bg-opacity)) !important;
+}
+

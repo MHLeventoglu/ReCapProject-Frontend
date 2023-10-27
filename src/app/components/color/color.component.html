@@ -1,0 +1,27 @@
+<div
+  *ngIf="dataLoaded == false"
+  class="spinner-border text-secondary"
+  role="status"
+>
+  <span class="visually-hidden">Loading...</span>
+</div>
+<ul class="list-group border-anthracite">
+  <li (click)="setCurrentColor(color)" 
+  *ngFor="let color of colors"
+  [routerLink]="['/cars/color/',color.id]"
+  [class]="setCurrentColorClass(color)">
+  {{color.colorName}}
+  </li>
+</ul>
+<!-- <table class="table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>ColorName</th>
+    </tr>
+  </thead>
+  <tr *ngFor="let color of colors">
+    <td>{{ color.id }}</td>
+    <td>{{ color.colorName }}</td>
+  </tr>
+</table> -->
